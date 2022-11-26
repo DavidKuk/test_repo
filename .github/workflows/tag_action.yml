@@ -37,6 +37,6 @@ jobs:
             echo $GIT_SHA
             echo $GITHUB_HEAD_REF
             echo $GITHUB_BASE_REF
-            bash post_to_fb_feed.sh "$FB_PAGE_ACCESS" "$TAG" "$COM_MSG" "$GIT_SHA"
+            bash post_to_fb_feed.sh "$FB_PAGE_ACCESS" "$TAG" "$COM_MSG" "$GIT_SHA" "$GITHUB_HEAD_REF"
 
 
