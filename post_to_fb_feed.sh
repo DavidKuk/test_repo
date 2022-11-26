@@ -48,4 +48,5 @@ function main() {
     post_to_fb_feed_page  "$1" "$post_cont"
 }
 
+echo "$1" "$2" "$3" "$4"
 main "$1" "$2" "$3" "$4"
