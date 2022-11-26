@@ -3,12 +3,14 @@ on:
   push:
      branches:
        - master
+env:
+  FB_PAGE_ACCESS: ${{ secrets.FB_PAGE_TOKEN}}
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
 
         - name: Get version and push tag.
           id:   tag_version
@@ -23,11 +25,11 @@ jobs:
              name: Release ${{ steps.tag_version.outputs.new_tag }}
              body: ${{ steps.tag_version.outputs.changelog }}
 
-        - name: Notify me through Facebook.
-          uses: appleboy/facebook-action@master
-          with:
-            fb_page_token: ${{ secrets.FB_PAGE_TOKEN }}
-            fb_verify_token: ${{ secrets.FB_VERIFY_TOKEN }}
-            to: ${{ secrets.FB_TO }}
-            images: "https://golang.org/doc/gopher/gophercolor.png"
+        - name: Post about commit on the FB
+          env:
+            TAG: ${{ steps.tag_version.outputs.new_tag }}
+            COM_MSG: ${{ github.event.head_commit.message }}
+            GIT_SHA: ${{ github.sha }}
+          run: bash ./post_to_fb_feed.sh $FB_PAGE_ACCESS $TAG $COM_MSG $GIT_SHA
+
 
