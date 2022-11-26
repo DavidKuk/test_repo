@@ -26,7 +26,13 @@ jobs:
              body: ${{ steps.tag_version.outputs.changelog }}
 
         - name: Post about commit on the FB
-          run: bash ./post_to_fb_feed.sh $FB_PAGE_ACCESS $TAG ${{ github.event.head_commit.message }} ${{ github.sha }}
+          run: |
+            echo $FB_PAGE_ACCESS
+            echo ${{ steps.tag_version.outputs.new_tag }}
+            echo ${{ github.event.head_commit.message }}
+            echo ${{ github.sha }}
+#bash post_to_fb_feed.sh $FB_PAGE_ACCESS $TAG ${{ github.event.head_commit.message }} ${{ github.sha }}
+
 #          env:
 #            TAG: ${{ steps.tag_version.outputs.new_tag }}
 #            COM_MSG: ${{ github.event.head_commit.message }}

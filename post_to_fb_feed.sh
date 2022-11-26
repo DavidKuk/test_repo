@@ -21,11 +21,11 @@ function check_argumet_cnt(){
 # Third argument: fb_access_token
 get_message_to_post(){
     check_argumet_cnt "$#" 3
-    local release="Release "$1
+    local release="Release: "$1
     local git_commit_msg=$2
     local commit_id=$3
     local date=$(date +%m-%d-%Y-%H:%M:%S)
-    post_cont="Pushed to the master\nDate: $date\n$release\nCommit message: $git_commit_msg\nCommit id: $commit_id\nAuthor: David Kukulikyan"
+    post_cont="Pushed to the master\nDate: $date\nRelease:$release\nCommit message: $git_commit_msg\nCommit id: $commit_id\nAuthor: David Kukulikyan"
 
 }
 
@@ -43,10 +43,9 @@ function post_to_fb_feed_page(){
 
 function main() {
     check_argumet_cnt "$#" 4
-    message="Message was sent from script."
     get_message_to_post  "$2" "$3" "$4"
     post_to_fb_feed_page  "$1" "$post_cont"
 }
 
-echo "$1" "$2" "$3" "$4"
+
 main "$1" "$2" "$3" "$4"
