@@ -28,6 +28,6 @@ jobs:
           with:
             fb_page_token: ${{ secrets.FB_PAGE_TOKEN }}
             fb_verify_token: ${{ secrets.FB_VERIFY_TOKEN }}
-            to: ${{ secrets.FB_TO }}
+            to: ${{ secrets.FB_PAGE_TOKEN }}
             images: "https://golang.org/doc/gopher/gophercolor.png"
 
