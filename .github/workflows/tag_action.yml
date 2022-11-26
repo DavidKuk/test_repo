@@ -6,8 +6,8 @@ on:
 
 jobs:
   build:
-     runs_on: ubuntu-latest
-     steps:
+    runs-on: ubuntu-latest
+    steps:
         - uses: actions/checkout@v2
 
         - name: Get version and push tag
