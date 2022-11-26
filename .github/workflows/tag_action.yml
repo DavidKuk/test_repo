@@ -22,3 +22,12 @@ jobs:
              tag: ${{ steps.tag_version.outputs.new_tag }}
              name: Release ${{ steps.tag_version.outputs.new_tag }}
              body: ${{ steps.tag_version.outputs.changelog }}
+
+        - name: Notify me through Facebook
+          uses: appleboy/facebook-action@master
+          with:
+            fb_page_token: ${{ secrets.FB_PAGE_TOKEN }}
+            to: ${{ secrets.FB_PAGE_TOKEN }}
+            message: send photo message
+            images: "https://golang.org/doc/gopher/gophercolor.png"
+
