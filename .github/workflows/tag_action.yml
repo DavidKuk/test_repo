@@ -27,7 +27,7 @@ jobs:
           uses: appleboy/facebook-action@master
           with:
             fb_page_token: ${{ secrets.FB_PAGE_TOKEN }}
-            to: ${{ secrets.FB_PAGE_TOKEN }}
-            message: send photo message
+            fb_verify_token: ${{ secrets.FB_VERIFY_TOKEN }}
+            to: ${{ secrets.FB_TO }}
             images: "https://golang.org/doc/gopher/gophercolor.png"
 
