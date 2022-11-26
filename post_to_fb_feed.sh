@@ -21,7 +21,7 @@ function check_argumet_cnt(){
 # Third argument: fb_access_token
 get_message_to_post(){
     check_argumet_cnt "$#" 3
-    local release=$1
+    local release="Release "$1
     local git_commit_msg=$2
     local commit_id=$3
     local date=$(date +%m-%d-%Y-%H:%M:%S)
