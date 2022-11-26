@@ -25,7 +25,7 @@ get_message_to_post(){
     local git_commit_msg=$2
     local commit_id=$3
     local date=$(date +%m-%d-%Y-%H:%M:%S)
-    post_cont="Pushed to the master\nDate: $date\nRelease:$release\nCommit message: $git_commit_msg\nCommit id: $commit_id"
+    post_cont="Date: $date\n$release\nCommit message: $git_commit_msg\nCommit id: $commit_id"
 
 }
 
