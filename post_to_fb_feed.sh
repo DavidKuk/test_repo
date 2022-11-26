@@ -44,8 +44,8 @@ function post_to_fb_feed_page(){
 
 function main() {
     check_argumet_cnt "$#" 4
-    get_message_to_post "$2" "$3" "$4"
-    post_to_fb_feed_page "$1" "$post_cont"
+    get_message_to_post $2 $3 $4
+    post_to_fb_feed_page $1 $post_cont
 }
 
 
