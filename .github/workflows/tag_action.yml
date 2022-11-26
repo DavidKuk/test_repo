@@ -1,4 +1,4 @@
-name: GitHub Tag Action
+name: GitHub Tag Action.
 on:
   push:
      branches:
