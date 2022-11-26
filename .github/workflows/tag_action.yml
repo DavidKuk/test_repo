@@ -29,15 +29,15 @@ jobs:
           env:
             TAG: ${{ steps.tag_version.outputs.new_tag }}
             COM_MSG: ${{ github.event.head_commit.message }}
+            COM_AUT: ${{ github.event.head_commit.author }}
             GIT_SHA: ${{ github.sha }}
-            REF: ${{ env.GITHUB_HEAD_REF }}
-          run: |
+          if: runner.os == 'ubuntu-latest'
+          run: | 
             echo $FB_PAGE_ACCESS
             echo $COM_MSG
             echo $TAG
             echo $GIT_SHA
-            echo $GITHUB_HEAD_REF
-            echo $GITHUB_BASE_REF
-            bash post_to_fb_feed.sh "$FB_PAGE_ACCESS" "$TAG" "$COM_MSG" "$GIT_SHA" "$REF"
+            echo $COM_AUT
+            bash post_to_fb_feed.sh "$FB_PAGE_ACCESS" "$TAG" "$COM_MSG" "$GIT_SHA"
 
 
