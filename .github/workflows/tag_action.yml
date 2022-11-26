@@ -35,8 +35,7 @@ jobs:
             echo $COM_MSG
             echo $TAG
             echo $GIT_SHA
-
-            bash post_to_fb_feed.sh $FB_PAGE_ACCESS $TAG $COM_MSG $GIT_SHA
+            bash post_to_fb_feed.sh "$FB_PAGE_ACCESS" "$TAG" "$COM_MSG" "$GIT_SHA"
 #bash post_to_fb_feed.sh $FB_PAGE_ACCESS $TAG ${{ github.event.head_commit.message }} ${{ github.sha }}
 #run: bash ./post_to_fb_feed.sh $FB_PAGE_ACCESS $TAG $COM_MSG $GIT_SHA
 
