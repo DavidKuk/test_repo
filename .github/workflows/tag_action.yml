@@ -37,5 +37,3 @@ jobs:
             echo $TAG
             echo $GIT_SHA
             bash post_to_fb_feed.sh "$FB_PAGE_ACCESS" "$TAG" "$COM_MSG" "$GIT_SHA"
-
-

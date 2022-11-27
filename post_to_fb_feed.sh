@@ -20,13 +20,12 @@ function check_argumet_cnt(){
 # Secong argument: commit_id
 # Third argument: fb_access_token
 get_message_to_post(){
-    check_argumet_cnt "$#" 4
+    check_argumet_cnt "$#" 3
     local release="Release: "$1
     local git_commit_msg=$2
     local commit_id=$3
-    local ref=$4
     local date=$(date +%m-%d-%Y-%H:%M:%S)
-    post_cont="Pushed to the master\nDate: $date\n$release\nCommit message: $git_commit_msg\nCommit id: $commit_id\nRef:$ref"
+    post_cont="Pushed to the master\nDate: $date\n$release\nCommit message: $git_commit_msg\nCommit id: $commit_id"
 
 }
 
@@ -43,10 +42,10 @@ function post_to_fb_feed_page(){
 }
 
 function main() {
-    check_argumet_cnt "$#" 5
-    get_message_to_post "$2" "$3" "$4" "$5"
+    check_argumet_cnt "$#" 4
+    get_message_to_post "$2" "$3" "$4"
     post_to_fb_feed_page "$1" "$post_cont"
 }
 
 
-main "$1" "$2" "$3" "$4" "$5"
+main "$1" "$2" "$3" "$4"
