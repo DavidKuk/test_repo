@@ -30,7 +30,7 @@ jobs:
             TAG: ${{ steps.tag_version.outputs.new_tag }}
             COM_MSG: ${{ github.event.head_commit.message }}
             GIT_SHA: ${{ github.sha }}
-          if: runner.os == 'ubuntu-latest'
+          if: ${{ runner.os }} == 'ubuntu-latest'
           run: | 
             echo $FB_PAGE_ACCESS
             echo $COM_MSG
